@@ -69,6 +69,50 @@ function getFeaturedPrice($image, $prices) {
         </nav>
     </div>
 </header>
+    
+<!-- Updated the Shop put in the home page for customer to see -->
+<!-- ============ SHOP ============ -->
+<div class="shop-container">
+
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+        <span class="filter-label">Filter by:</span>
+
+        <button class="filter-btn active" onclick="filterProducts('All', this)">
+            🛍️ All
+            <span class="filter-count"><?php echo $counts['All']; ?></span>
+        </button>
+
+        <button class="filter-btn" onclick="filterProducts('Eyeglasses', this)">
+            👓 Eyeglasses
+            <span class="filter-count"><?php echo $counts['Eyeglasses']; ?></span>
+        </button>
+
+        <button class="filter-btn" onclick="filterProducts('Sunglasses', this)">
+            🕶️ Sunglasses
+            <span class="filter-count"><?php echo $counts['Sunglasses']; ?></span>
+        </button>
+
+        <button class="filter-btn" onclick="filterProducts('Reading Glasses', this)">
+            📖 Reading Glasses
+            <span class="filter-count"><?php echo $counts['Reading Glasses']; ?></span>
+        </button>
+
+        <button class="filter-btn" onclick="filterProducts('Contact Lenses', this)">
+            👁️ Contact Lenses
+            <span class="filter-count"><?php echo $counts['Contact Lenses']; ?></span>
+        </button>
+
+        <button class="filter-btn" onclick="filterProducts('Accessories', this)">
+            🎒 Accessories
+            <span class="filter-count"><?php echo $counts['Accessories']; ?></span>
+        </button>
+    </div>
+
+    <!-- Results Info -->
+    <div class="results-info">
+        <p class="results-count">Showing <strong id="visible-count"><?php echo $counts['All']; ?></strong> products</p>
+    </div>
 
 <!-- ============ HERO ============ -->
 <section class="hero">
