@@ -1,0 +1,459 @@
+/* =============================================
+   PRODUCT_DETAILS.CSS — Optical Shop
+   Matches shop.css gold/brown design system
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+    --gold:         #B8860B;
+    --gold-bright:  #D4AF37;
+    --gold-light:   #f7e189;
+    --gold-pale:    #fef9e7;
+    --brown-dark:   #3d2110;
+    --brown-mid:    #5d381f;
+    --brown-soft:   #f4e8dd;
+    --brown-bg:     #faf3ec;
+    --white:        #ffffff;
+    --off-white:    #fafaf8;
+    --text-dark:    #1a1a1a;
+    --text-mid:     #444;
+    --text-soft:    #888;
+    --radius-lg:    20px;
+    --radius-xl:    28px;
+    --radius-pill:  999px;
+    --shadow-sm:    0 4px 16px rgba(0,0,0,0.07);
+    --shadow-md:    0 12px 36px rgba(0,0,0,0.11);
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body:    'DM Sans', Arial, sans-serif;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--font-body);
+    background: var(--brown-bg);
+    color: var(--text-dark);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* =============================================
+   NAVBAR
+   ============================================= */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+}
+
+.navbar-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.nav-logo {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    object-fit: cover;
+    transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.nav-logo:hover {
+    transform: rotate(-6deg) scale(1.06);
+    filter: drop-shadow(0 8px 16px rgba(0,0,0,0.15));
+}
+
+.nav-brand-name {
+    font-family: var(--font-display);
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.nav-link {
+    padding: 8px 16px;
+    text-decoration: none;
+    color: var(--text-mid);
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-radius: var(--radius-pill);
+    transition: background 0.2s, color 0.2s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    background: #f0ede6;
+    color: var(--text-dark);
+}
+
+.nav-btn-outline {
+    margin-left: 8px;
+    padding: 9px 22px;
+    border: 2px solid var(--gold);
+    color: var(--gold);
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 600;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+.nav-btn-outline:hover {
+    background: var(--gold);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* =============================================
+   PAGE HEADER
+   ============================================= */
+.page-header {
+    background: linear-gradient(135deg, var(--brown-dark) 0%, var(--brown-mid) 100%);
+    padding: 48px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(212,175,55,0.15) 0%, transparent 65%);
+    pointer-events: none;
+}
+
+.page-header h1 {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    color: #fff;
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.page-header h1 span { color: var(--gold-bright); }
+
+.page-header p {
+    color: rgba(255,255,255,0.7);
+    font-size: 1rem;
+    position: relative;
+}
+
+/* =============================================
+   DETAILS CONTAINER
+   ============================================= */
+.details-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 48px 32px 72px;
+}
+
+/* =============================================
+   PRODUCT CARD
+   ============================================= */
+.product-card {
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(0,0,0,0.05);
+    display: flex;
+    gap: 48px;
+    padding: 40px;
+    align-items: flex-start;
+}
+
+/* =============================================
+   IMAGE SIDE
+   ============================================= */
+.product-image {
+    flex: 1;
+    position: relative;
+}
+
+.product-image img {
+    width: 100%;
+    border-radius: var(--radius-lg);
+    object-fit: cover;
+    max-height: 420px;
+    display: block;
+    background: var(--brown-soft);
+    transition: transform 0.4s ease;
+}
+
+.product-image img:hover {
+    transform: scale(1.02);
+}
+
+.category-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    padding: 5px 14px;
+    background: rgba(255,255,255,0.92);
+    color: var(--gold);
+    border-radius: var(--radius-pill);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(184,134,11,0.2);
+}
+
+/* =============================================
+   INFO SIDE
+   ============================================= */
+.product-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.product-info h1 {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    color: var(--text-dark);
+    line-height: 1.2;
+    margin-bottom: 4px;
+}
+
+/* Meta rows (Category / Brand) */
+.meta-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    background: var(--brown-bg);
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.meta-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-soft);
+    min-width: 72px;
+}
+
+.meta-value {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+/* Price block */
+.price-block {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 20px;
+    background: var(--gold-pale);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(184,134,11,0.18);
+    margin-top: 4px;
+}
+
+.price-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--gold);
+}
+
+.price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold);
+    font-family: var(--font-display);
+}
+
+/* Stock */
+.stock {
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+.stock.low  {
+    color: #c0392b;
+    background: #fdecea;
+    border: 1px solid rgba(192,57,43,0.15);
+}
+
+.stock.good {
+    color: #27ae60;
+    background: #eafaf1;
+    border: 1px solid rgba(39,174,96,0.15);
+}
+
+/* =============================================
+   QUANTITY + BUTTONS
+   ============================================= */
+.quantity-block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.qty-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-soft);
+}
+
+input[type="number"] {
+    width: 120px;
+    padding: 10px 14px;
+    border: 1.5px solid #e5e0d8;
+    border-radius: 10px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--text-dark);
+    background: var(--off-white);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="number"]:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(184,134,11,0.12);
+}
+
+.btn-group {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+/* Add to Cart button — matches shop's btn-view */
+.btn-cart {
+    flex: 1;
+    padding: 13px 24px;
+    background: var(--gold);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 14px rgba(184,134,11,0.25);
+    white-space: nowrap;
+}
+
+.btn-cart:hover {
+    background: #a07608;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(184,134,11,0.3);
+}
+
+/* Back to Shop button — matches shop's btn-back */
+.btn-back {
+    flex: 1;
+    padding: 13px 24px;
+    border: 2px solid var(--gold);
+    background: transparent;
+    color: var(--gold);
+    border-radius: var(--radius-pill);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    white-space: nowrap;
+}
+
+.btn-back:hover {
+    background: var(--gold);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* =============================================
+   FOOTER
+   ============================================= */
+footer {
+    background: #111;
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 22px;
+    font-size: 0.88rem;
+    letter-spacing: 0.02em;
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 768px) {
+    .navbar-inner  { padding: 0 16px; }
+    .nav-brand-name { display: none; }
+    .nav-link      { padding: 8px 10px; font-size: 0.88rem; }
+    .nav-btn-outline { padding: 8px 14px; font-size: 0.85rem; }
+
+    .details-container { padding: 28px 16px 48px; }
+    .page-header        { padding: 36px 16px; }
+
+    .product-card {
+        flex-direction: column;
+        gap: 28px;
+        padding: 24px;
+    }
+
+    .price { font-size: 1.6rem; }
+
+    .btn-group { flex-direction: column; }
+    .btn-cart,
+    .btn-back  { flex: unset; width: 100%; }
+}
+
+@media (max-width: 480px) {
+    .product-card { padding: 16px; }
+}

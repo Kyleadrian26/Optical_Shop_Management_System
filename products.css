@@ -1,0 +1,288 @@
+/* =============================================
+   PRODUCTS.CSS — Admin Product List
+   Light yellow admin style
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+    --gold:         #B8860B;
+    --gold-bright:  #D4AF37;
+    --gold-pale:    #fef9e7;
+    --gold-light:   #f7e189;
+    --brown-dark:   #3d2110;
+    --brown-mid:    #5d381f;
+    --brown-soft:   #f4e8dd;
+    --yellow-bg:    #fffde7;
+    --yellow-mid:   #fff9c4;
+    --white:        #ffffff;
+    --off-white:    #fafaf8;
+    --text-dark:    #1a1a1a;
+    --text-mid:     #444;
+    --text-soft:    #888;
+    --radius-lg:    20px;
+    --radius-xl:    28px;
+    --radius-pill:  999px;
+    --shadow-sm:    0 4px 16px rgba(0,0,0,0.07);
+    --shadow-md:    0 12px 36px rgba(0,0,0,0.11);
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body:    'DM Sans', Arial, sans-serif;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--font-body);
+    background: var(--yellow-bg);
+    color: var(--text-dark);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* =============================================
+   PAGE HEADER
+   ============================================= */
+.page-header {
+    background: linear-gradient(135deg, var(--brown-dark) 0%, var(--brown-mid) 100%);
+    padding: 40px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(212,175,55,0.15) 0%, transparent 65%);
+    pointer-events: none;
+}
+
+.page-header h1 {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    color: #fff;
+    margin-bottom: 6px;
+    position: relative;
+}
+
+.page-header h1 span { color: var(--gold-bright); }
+
+.page-header p {
+    color: rgba(255,255,255,0.7);
+    font-size: 1rem;
+    position: relative;
+}
+
+/* =============================================
+   ADMIN CONTAINER
+   ============================================= */
+.admin-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 32px 64px;
+}
+
+/* =============================================
+   TOP BAR
+   ============================================= */
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* Back button — gold outline */
+.btn-back {
+    padding: 11px 26px;
+    border: 2px solid var(--gold);
+    background: transparent;
+    color: var(--gold);
+    border-radius: var(--radius-pill);
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+.btn-back:hover {
+    background: var(--gold);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Add Product button — gold filled */
+.btn-add {
+    padding: 11px 26px;
+    background: var(--gold);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 14px rgba(184,134,11,0.25);
+}
+
+.btn-add:hover {
+    background: #a07608;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(184,134,11,0.3);
+}
+
+/* =============================================
+   PRODUCT COUNT
+   ============================================= */
+.product-count {
+    font-size: 0.92rem;
+    color: var(--text-soft);
+    margin-bottom: 20px;
+}
+
+.product-count strong {
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+/* =============================================
+   TABLE WRAP
+   ============================================= */
+.table-wrap {
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(0,0,0,0.05);
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.93rem;
+}
+
+thead tr {
+    background: linear-gradient(135deg, var(--brown-dark), var(--brown-mid));
+}
+
+thead th {
+    padding: 16px 18px;
+    text-align: left;
+    color: var(--gold-bright);
+    font-family: var(--font-display);
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+tbody tr {
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    transition: background 0.18s;
+}
+
+tbody tr:last-child { border-bottom: none; }
+
+tbody tr:hover { background: var(--yellow-mid); }
+
+tbody td {
+    padding: 14px 18px;
+    color: var(--text-mid);
+    vertical-align: middle;
+}
+
+/* Specific columns */
+.td-id {
+    color: var(--text-soft);
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.td-img img {
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+    border-radius: 10px;
+    background: var(--brown-soft);
+    display: block;
+}
+
+.td-name {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.td-price {
+    font-weight: 700;
+    color: var(--gold);
+    font-size: 1rem;
+}
+
+.td-stock {
+    font-weight: 600;
+    font-size: 0.88rem;
+}
+
+.td-stock.low  { color: #c0392b; }
+.td-stock.good { color: #27ae60; }
+
+/* Category badge */
+.badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: var(--gold-pale);
+    color: var(--gold);
+    border: 1px solid rgba(184,134,11,0.2);
+    border-radius: var(--radius-pill);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+/* =============================================
+   FOOTER
+   ============================================= */
+footer {
+    background: #111;
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 22px;
+    font-size: 0.88rem;
+    letter-spacing: 0.02em;
+    margin-top: 0;
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 768px) {
+    .admin-container { padding: 24px 16px 48px; }
+    .page-header     { padding: 32px 16px; }
+
+    thead th,
+    tbody td { padding: 12px 12px; }
+
+    .td-img img { width: 44px; height: 44px; }
+}
