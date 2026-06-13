@@ -1,0 +1,304 @@
+/* =============================================
+   ADD_PRODUCTS.CSS — Admin Add Product Form
+   Light brown admin style
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+    --gold:         #B8860B;
+    --gold-bright:  #D4AF37;
+    --gold-pale:    #fef9e7;
+    --gold-light:   #f7e189;
+    --brown-dark:   #3d2110;
+    --brown-mid:    #5d381f;
+    --brown-soft:   #f4e8dd;
+    --brown-bg:     #faf3ec;
+    --white:        #ffffff;
+    --off-white:    #fafaf8;
+    --text-dark:    #1a1a1a;
+    --text-mid:     #444;
+    --text-soft:    #888;
+    --radius-lg:    20px;
+    --radius-xl:    28px;
+    --radius-pill:  999px;
+    --shadow-sm:    0 4px 16px rgba(0,0,0,0.07);
+    --shadow-md:    0 12px 36px rgba(0,0,0,0.11);
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body:    'DM Sans', Arial, sans-serif;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--font-body);
+    background: var(--brown-bg);
+    color: var(--text-dark);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* =============================================
+   PAGE HEADER
+   ============================================= */
+.page-header {
+    background: linear-gradient(135deg, var(--brown-dark) 0%, var(--brown-mid) 100%);
+    padding: 40px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(212,175,55,0.15) 0%, transparent 65%);
+    pointer-events: none;
+}
+
+.page-header h1 {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    color: #fff;
+    margin-bottom: 6px;
+    position: relative;
+}
+
+.page-header h1 span { color: var(--gold-bright); }
+
+.page-header p {
+    color: rgba(255,255,255,0.7);
+    font-size: 1rem;
+    position: relative;
+}
+
+/* =============================================
+   FORM CONTAINER
+   ============================================= */
+.form-container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 32px 72px;
+}
+
+/* =============================================
+   FORM CARD
+   ============================================= */
+.form-card {
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(0,0,0,0.05);
+    padding: 40px;
+}
+
+/* =============================================
+   ERROR MESSAGE
+   ============================================= */
+.error-message {
+    background: #fdecea;
+    color: #c0392b;
+    border: 1px solid rgba(192,57,43,0.2);
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+/* =============================================
+   FORM GROUPS
+   ============================================= */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+label {
+    font-size: 0.83rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-soft);
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid #e5e0d8;
+    border-radius: 12px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    background: var(--off-white);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(184,134,11,0.12);
+    background: var(--white);
+}
+
+select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+}
+
+/* =============================================
+   FILE INPUT
+   ============================================= */
+.file-wrap {
+    position: relative;
+}
+
+input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.file-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 22px;
+    border: 1.5px dashed var(--gold);
+    border-radius: 12px;
+    background: var(--gold-pale);
+    color: var(--gold);
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.file-label:hover {
+    background: var(--gold-light);
+    border-color: var(--gold-bright);
+}
+
+/* Image preview */
+.img-preview {
+    margin-top: 14px;
+    width: 100%;
+    max-height: 240px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(0,0,0,0.07);
+    display: block;
+}
+
+/* =============================================
+   BUTTONS
+   ============================================= */
+.btn-group {
+    display: flex;
+    gap: 14px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+/* Submit — gold filled */
+.btn-submit {
+    flex: 1;
+    padding: 13px 24px;
+    background: var(--gold);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 14px rgba(184,134,11,0.25);
+    white-space: nowrap;
+}
+
+.btn-submit:hover {
+    background: #a07608;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(184,134,11,0.3);
+}
+
+/* Back — gold outline */
+.btn-back {
+    flex: 1;
+    padding: 13px 24px;
+    border: 2px solid var(--gold);
+    background: transparent;
+    color: var(--gold);
+    border-radius: var(--radius-pill);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: background 0.2s, color 0.2s, transform 0.2s;
+    white-space: nowrap;
+}
+
+.btn-back:hover {
+    background: var(--gold);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* =============================================
+   FOOTER
+   ============================================= */
+footer {
+    background: #111;
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 22px;
+    font-size: 0.88rem;
+    letter-spacing: 0.02em;
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 600px) {
+    .form-container { padding: 24px 16px 48px; }
+    .form-card      { padding: 24px 18px; }
+    .form-row       { grid-template-columns: 1fr; gap: 0; }
+    .btn-group      { flex-direction: column; }
+    .btn-submit,
+    .btn-back       { flex: unset; width: 100%; }
+}
