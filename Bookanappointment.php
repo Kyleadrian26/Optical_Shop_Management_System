@@ -135,7 +135,7 @@ if(isset($_POST['submit_repair'])){
 
         <?php if($success === 'appointment'): ?>
         <div class="success-banner show">
-            ✅ &nbsp; Your appointment has been booked! We'll contact you shortly to confirm.
+            ✅ &nbsp; Your appointment has successfully booked! We'll contact you shortly to confirm.
         </div>
         <?php endif; ?>
 
@@ -185,7 +185,7 @@ if(isset($_POST['submit_repair'])){
                         <label>Purpose of Visit <span class="req">*</span></label>
                         <select name="purpose" required>
                             <option value="" disabled selected>Select a purpose</option>
-                            <option>Eye Examination</option>
+                            <option>Eye Exams</option>
                             <option>Prescription Check / Update</option>
                             <option>Eyeglass Fitting</option>
                             <option>Contact Lens Fitting</option>
